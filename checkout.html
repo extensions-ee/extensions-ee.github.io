@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>extensions.ee: Checkout</title>
+  <script>if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.style.backgroundColor = 'rgb(17 24 39)'</script>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const env = params.get('sandbox') === '1' ? 'sandbox' : 'production';
+      const token = env === 'sandbox' ? 'test_46b98a390fbbcfa233472def161' : null; // TODO
+
+      if (env === 'sandbox') Paddle.Environment.set('sandbox');
+      Paddle.Initialize({ token, checkout: { settings: { allowLogout: false, displayMode: 'overlay', showAddDiscounts: false, showAddTaxId: false } }});
+    })();
+  </script>
+</head>
+</html>
