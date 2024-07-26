@@ -1,17 +1,65 @@
 <html>
 <head>
   <title>extensions.ee: Checkout</title>
-  <script>if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.style.backgroundColor = 'rgb(17 24 39)'</script>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script>
     (function() {
       const params = new URLSearchParams(window.location.search);
       const env = params.get('sandbox') === '1' ? 'sandbox' : 'production';
-      const token = env === 'sandbox' ? 'test_46b98a390fbbcfa233472def161' : null; // TODO
+      const productId = params.get('product_id');
+      const token = env === 'sandbox' ? 'test_46b98a390fbbcfa233472def161' : 'live_66df90e4543447f2dae6e2814ae';
 
-      if (env === 'sandbox') Paddle.Environment.set('sandbox');
-      Paddle.Initialize({ token, checkout: { settings: { allowLogout: false, displayMode: 'overlay', showAddDiscounts: false, showAddTaxId: false } }});
+      function invalidateInstallationData() {
+        let productIds = ['ledkjiplmbjfmnblpkpckbahgphoajfb', 'ogpphkbgpenocloijehingefhmocoacp'];
+        if (productIds.includes(productId)) productIds = [productId];
+
+        productIds.forEach(function(id) {
+          try {
+            chrome.runtime.sendMessage(id, { action: 'invalidateInstallationData' });
+          } catch (e) {}
+        });
+      }
+
+      let transactionCompleted = false;
+
+      function eventCallback({ name }) {
+        switch (name) {
+          case 'checkout.closed':
+            if (transactionCompleted) break;
+            document.getElementById('interrupted').classList.remove('hidden');
+            break;
+          case 'checkout.completed':
+            transactionCompleted = true;
+            document.getElementById('thank-you').classList.remove('hidden');
+            invalidateInstallationData();
+            break;
+          default:
+            break;
+        }
+      }
+
+      if (env === 'sandbox') Paddle.Environment.set(env);
+      Paddle.Initialize({ token, eventCallback, checkout: { settings: { allowLogout: false, displayMode: 'overlay', showAddDiscounts: false, showAddTaxId: true } }});
+
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
     })();
   </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
+<body class="bg-white dark:bg-gray-900 text-gray-100 dark:text-gray-100">
+  <section id="thank-you" class="hidden mx-auto max-w-screen-xl">
+    <div class="m-4">
+      <h1 class="mt-10 mb-4 text-4xl font-extrabold">Thank you!</h1>
+      <p class="mb-2 text-lg">We've received your payment. Thank you for choosing our product!</p>
+      <p class="mb-2 text-lg">Your payment information will be displayed in the extension. If it hasn't already happened, it may take up to ten minutes.</p>
+    </div>
+  </section>
+  <section id="interrupted" class="hidden mx-auto max-w-screen-xl">
+    <div class="m-4">
+      <h1 class="mt-10 mb-4 text-4xl font-extrabold">Payment not completed</h1>
+      <p class="mb-2 text-lg"><a href="#" onclick="location.reload()" class="underline">Please click here</a> to continue you payment.</p>
+      <p class="mb-2 text-lg">If you don't want to continue, you can close this tab.</p>
+    </div>
+  </section>
+</body>
 </html>
