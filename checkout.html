@@ -10,7 +10,16 @@
       const token = env === 'sandbox' ? 'test_46b98a390fbbcfa233472def161' : 'live_66df90e4543447f2dae6e2814ae';
 
       function invalidateInstallationData() {
-        let productIds = ['ledkjiplmbjfmnblpkpckbahgphoajfb', 'ogpphkbgpenocloijehingefhmocoacp'];
+        let productIds = [
+          'ledkjiplmbjfmnblpkpckbahgphoajfb', // Pitch Changer
+          'ogpphkbgpenocloijehingefhmocoacp', // Pitch Changer - Sandbox
+          'lefillmphhhbghbdiglklchcgalbdeae', // Online Piano
+          'mphffmbcgnbmpbplikhdeafdcjklkggo', // Online Piano - Sandbox
+          'aokfecficmehhlmjaaojhngplabgjife', // Tone Generator
+          'hkgfhcbioelkdbihpaolkkbohiloadbk', // Tone Generator - Sandbox
+          'klddneocmcmoacnnemmelgeilnedcpjj', // BPM Changer
+          'pileobebldagolmgcofmciknobmjmdeg'  // BPM Changer - Sandbox
+        ];
         if (productIds.includes(productId)) productIds = [productId];
 
         productIds.forEach(function(id) {

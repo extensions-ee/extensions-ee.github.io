@@ -7,7 +7,16 @@
       const params = new URLSearchParams(window.location.search);
       const productId = params.get('product_id');
 
-      let productIds = ['ledkjiplmbjfmnblpkpckbahgphoajfb', 'ogpphkbgpenocloijehingefhmocoacp'];
+      let productIds = [
+        'ledkjiplmbjfmnblpkpckbahgphoajfb', // Pitch Changer
+        'ogpphkbgpenocloijehingefhmocoacp', // Pitch Changer - Sandbox
+        'lefillmphhhbghbdiglklchcgalbdeae', // Online Piano
+        'mphffmbcgnbmpbplikhdeafdcjklkggo', // Online Piano - Sandbox
+        'aokfecficmehhlmjaaojhngplabgjife', // Tone Generator
+        'hkgfhcbioelkdbihpaolkkbohiloadbk', // Tone Generator - Sandbox
+        'klddneocmcmoacnnemmelgeilnedcpjj', // BPM Changer
+        'pileobebldagolmgcofmciknobmjmdeg'  // BPM Changer - Sandbox
+      ];
       if (productIds.includes(productId)) productIds = [productId];
 
       productIds.forEach(function(id) {
