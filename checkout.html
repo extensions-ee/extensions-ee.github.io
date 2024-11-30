@@ -48,7 +48,20 @@
       }
 
       if (env === 'sandbox') Paddle.Environment.set(env);
-      Paddle.Initialize({ token, eventCallback, checkout: { settings: { allowLogout: false, displayMode: 'overlay', showAddDiscounts: false, showAddTaxId: true } }});
+
+      Paddle.Initialize({
+        token,
+        eventCallback,
+        checkout: {
+          settings: {
+            allowLogout: false,
+            displayMode: 'overlay',
+            variant: 'one-page',
+            showAddDiscounts: false,
+            showAddTaxId: true
+          }
+        }
+      });
 
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
     })();
