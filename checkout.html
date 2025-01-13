@@ -35,8 +35,8 @@
       function toFb(data) {
         return {
           currency: data.currency_code,
-          value: data.totals.subtotal / 100,
-          predicted_ltv: data.totals.subtotal / 100,
+          value: data.totals.subtotal,
+          predicted_ltv: data.totals.subtotal,
           num_items: data.items.length,
           contents: data.items.map(({ price_id, quantity }) => { return { id: price_id, quantity }}),
           content_category: data.items[0] ? data.items[0].product.name : null,
