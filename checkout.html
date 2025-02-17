@@ -4,6 +4,18 @@
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('product_id');
+
+      switch (productId) {
+        case 'ledkjiplmbjfmnblpkpckbahgphoajfb':
+        case 'ogpphkbgpenocloijehingefhmocoacp':
+          fbq('init', '8980699458686582');
+          break;
+      }
+      fbq('track', 'PageView');
+    })();
   </script>
   <script>
     (function() {
@@ -89,14 +101,6 @@
       });
 
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
-
-      switch (productId) {
-        case 'ledkjiplmbjfmnblpkpckbahgphoajfb':
-        case 'ogpphkbgpenocloijehingefhmocoacp':
-          fbq('init', '8980699458686582');
-          break;
-      }
-      fbq('track', 'PageView');
     })();
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
