@@ -9,9 +9,13 @@
       const productId = params.get('product_id');
 
       switch (productId) {
-        case 'ledkjiplmbjfmnblpkpckbahgphoajfb':
-        case 'ogpphkbgpenocloijehingefhmocoacp':
+        case 'ledkjiplmbjfmnblpkpckbahgphoajfb': // Pitch Changer
+        case 'ogpphkbgpenocloijehingefhmocoacp': // Pitch Changer - Sandbox
           fbq('init', '8980699458686582');
+          break;
+        case 'lefillmphhhbghbdiglklchcgalbdeae': // Online Piano
+        case 'mphffmbcgnbmpbplikhdeafdcjklkggo': // Online Piano - Sandbox
+          fbq('init', '1152557802465368');
           break;
       }
       fbq('track', 'PageView');
