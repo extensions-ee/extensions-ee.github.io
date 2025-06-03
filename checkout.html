@@ -4,33 +4,63 @@
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  </script>
+  <script>
     (function () {
       const params = new URLSearchParams(window.location.search);
       const productId = params.get('product_id');
+      let fbId, name, tag;
 
       switch (productId) {
         case 'ledkjiplmbjfmnblpkpckbahgphoajfb': // Pitch Changer
         case 'ogpphkbgpenocloijehingefhmocoacp': // Pitch Changer - Sandbox
-          fbq('init', '8980699458686582');
+          name = 'Pitch Changer';
+          tag = 'pitch-changer';
+          fbId = '8980699458686582';
           break;
         case 'lefillmphhhbghbdiglklchcgalbdeae': // Online Piano
         case 'mphffmbcgnbmpbplikhdeafdcjklkggo': // Online Piano - Sandbox
-          fbq('init', '1152557802465368');
+          name = 'Online Piano';
+          tag = 'online-piano';
+          fbId = '1152557802465368';
           break;
         case 'aokfecficmehhlmjaaojhngplabgjife': // Tone Generator
         case 'hkgfhcbioelkdbihpaolkkbohiloadbk': // Tone Generator - Sandbox
-          fbq('init', '1157168609316289');
+          name = 'Tone Generator';
+          tag = 'tone-generator';
+          fbId = '1157168609316289';
           break;
         case 'klddneocmcmoacnnemmelgeilnedcpjj': // BPM Changer
         case 'pileobebldagolmgcofmciknobmjmdeg': // BPM Changer - Sandbox
-          fbq('init', '962287775871311');
+          name = 'BPM Changer';
+          tag = 'bpm-changer';
+          fbId = '962287775871311';
           break;
         case 'bcbfalkgcdnejkdjacfpgcoanadljgoe': // Vocal Remover
         case 'plboejjnjfcjcpfdbjgolojnbnbkjbhp': // Vocal Remover - Sandbox
-          fbq('init', '2368721863507160');
+          name = 'Vocal Remover';
+          tag = 'vocal-remover';
+          fbId = '2368721863507160';
           break;
       }
-      fbq('track', 'PageView');
+
+      if (name) document.title = `${name}: Checkout`;
+
+      if (tag) {
+        for (let size = 16; size <= 32; size += 16) {
+          const link = document.createElement('link');
+          link.setAttribute('rel', 'icon');
+          link.setAttribute('type', 'image/png');
+          link.setAttribute('sizes', `${size}x${size}`);
+          link.setAttribute('href', `${tag}/icons/${size}.png`);
+          document.head.appendChild(link);
+        }
+      }
+
+      if (fbId) {
+        fbq('init', fbId);
+        fbq('track', 'PageView');
+      }
     })();
   </script>
   <script>
