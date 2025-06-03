@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>extensions.ee: Subscription restored</title>
@@ -24,8 +25,6 @@
           chrome.runtime.sendMessage(id, { action: 'invalidateInstallationData' });
         } catch (e) {}
       });
-
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
     })();
   </script>
 </head>
@@ -34,7 +33,7 @@
     <div class="m-4">
       <h1 class="mt-10 mb-4 text-4xl font-extrabold">Thank you!</h1>
       <p class="mb-2 text-lg">Your subscription was restored.</p>
-      <p class="mb-2 text-lg">Your payment information will be displayed in the extension. If it hasn't already happened, it may take up to ten minutes.</p>
+      <p class="mb-2 text-lg">You'll see your payment info in the extension shortly. If it's not showing yet, don't worry, it might take up to ten minutes to appear.</p>
     </div>
   </section>
 </section>
