@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>extensions.ee: Terms and Conditions</title>
@@ -160,7 +161,20 @@ Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;">These Legal Terms
 Calibri;color:#595959;mso-themecolor:text1;mso-themetint:166;">In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at info@extensions.ee.</span></div></div>
   </div>
 
-  <p class="mt-8 mb-8 text-center"><a href="/">&ShortLeftArrow; <span class="underline">Back to the Home Page</span></a></p>
+  <p class="mt-8 text-center"><a href="/" id="home-page-link">&ShortLeftArrow; <span class="underline">Back to the Home Page</span></a></p>
 </section>
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get('from');
+    const link = document.getElementById('home-page-link');
+
+    switch (from) {
+      case 'pitch-changer.com':
+        link.href = `https://${from}`;
+        break;
+    }
+  })();
+</script>
 </body>
 </html>

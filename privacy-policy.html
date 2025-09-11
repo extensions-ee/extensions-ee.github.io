@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>extensions.ee: Privacy Policy</title>
@@ -127,8 +128,21 @@
         <h1 class="mt-10 mb-4 text-3xl font-extrabold">Questions About this Privacy Policy</h1>
         <p class="mb-2">If you have any questions about this Privacy Policy or our privacy practices, you can contact us at info@extensions.ee.</p>
       </div>
-      <p class="mt-8 text-center"><a href="/">&ShortLeftArrow; <span class="underline">Back to the Home Page</span></a></p>
+      <p class="mt-8 text-center"><a href="/" id="home-page-link">&ShortLeftArrow; <span class="underline">Back to the Home Page</span></a></p>
     </div>
   </section>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const from = params.get('from');
+      const link = document.getElementById('home-page-link');
+
+      switch (from) {
+        case 'pitch-changer.com':
+          link.href = `https://${from}`;
+          break;
+      }
+    })();
+  </script>
 </body>
 </html>

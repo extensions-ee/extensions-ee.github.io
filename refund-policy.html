@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>extensions.ee: Refund Policy</title>
@@ -14,8 +15,21 @@
       <h1 class="mt-10 mb-4 text-3xl font-extrabold">Changes To Our Refund Policy</h1>
       <p class="mb-2">Should we make any changes to this document, those changes will be posted here: <a href="https://extensions.ee/refund-policy.html" class="underline">https://extensions.ee/refund-policy.html</a></p>
       <p class="mb-2">In case of changes, you will be bound by the old Refund Policy that was in force on the date of your payment.</p>
-      <p class="mt-8 text-center"><a href="/">&ShortLeftArrow; <span class="underline">Back to the Home Page</span></a></p>
+      <p class="mt-8 text-center"><a href="/" id="home-page-link">&ShortLeftArrow; <span class="underline">Back to the Home Page</span></a></p>
     </div>
   </section>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const from = params.get('from');
+      const link = document.getElementById('home-page-link');
+
+      switch (from) {
+        case 'pitch-changer.com':
+          link.href = `https://${from}`;
+          break;
+      }
+    })();
+  </script>
 </body>
 </html>
