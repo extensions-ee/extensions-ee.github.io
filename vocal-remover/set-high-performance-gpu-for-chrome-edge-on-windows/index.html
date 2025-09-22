@@ -55,10 +55,10 @@
                 <h3 class="font-semibold">Open Graphics settings</h3>
                 <p class="mt-1 text-slate-600">Open settings by <a href="ms-settings:display-advancedgraphics" class="text-blue-700 underline hover:no-underline">clicking here</a>, or go to <span class="font-medium">Settings → System → Display → Graphics</span>.</p>
                 <p class="mt-2 text-slate-600">
-                  In the list, look for <span class="font-medium">Google Chrome</span> (you may need to scroll). If you see it, go to <span class="font-medium">Step 3</span>.
+                  In the list, look for <span class="font-medium">Google Chrome</span> (you may need to scroll). If you see it, go to <a href="#step3-chrome" class="text-blue-700 underline hover:no-underline">Step 3</a>.
                 </p>
 
-                <img class="mt-4 rounded-md" src="graphics-settings-look-here.png" alt="Settings → System → Display → Graphics screen with app list highlighted" />
+                <img class="mt-4 rounded-md" src="graphics-settings-1.png" alt="Settings → System → Display → Graphics screen with app list highlighted" />
               </div>
             </div>
           </section>
@@ -71,12 +71,18 @@
                 <h3 class="font-semibold">Add Chrome to the list (only if it’s missing)</h3>
 
                 <div class="mt-2 space-y-4">
-                  <p class="font-medium">If you don’t see Chrome there:</p>
-                  <ol class="mt-2 list-decimal pl-5 text-slate-600 space-y-2">
-                    <li>Under <span class="font-medium">Add an app</span>, open the drop‑down and choose <span class="font-medium">Desktop app</span>.</li>
-                    <li>Click <span class="font-medium">Browse</span> (this opens File Explorer).</li>
-                    <li>At the bottom, in the <span class="font-medium">File name</span> box, <span class="font-medium">paste one of the lines</span> below and press <span class="font-medium">Enter</span> (or click <span class="font-medium">Add</span>). If the first line shows you an error, try the next one.</li>
+                  <p class="mt-2 text-slate-600">
+                    If you don’t see Chrome there:
+                  </p>
+                  <ol class="list-decimal pl-5 text-slate-600 space-y-2">
+                    <li>Under <span class="font-medium">Add an app</span>, open the drop‑down and make sure <span class="font-medium">Desktop app</span> is selected.</li>
+                    <li>Click <span class="font-medium">Browse</span>.</li>
+                    <li>At the bottom, in the <span class="font-medium">File name</span> box, <span class="font-medium">paste one of the lines</span> below.</li>
+                    <li>Press <span class="font-medium">Enter</span> or click <span class="font-medium">Add</span>.<p>
                   </ol>
+                  <p class="mt-2 text-slate-600">
+                    If the first line shows you an error, try the next one.
+                  </p>
 
                   <!-- Copy‑friendly addresses (avoid the word "path") -->
                   <div class="mt-3 space-y-2">
@@ -94,19 +100,15 @@
                     </div>
                   </div>
 
-                  <!-- Screenshot placeholders -->
-                  <!-- Screenshot: Dropdown set to Desktop app + Browse; second shot shows File Explorer with the File name box used and chrome.exe selected, then the Add button in Settings. -->
-                  <div class="mt-3 grid gap-4 sm:grid-cols-2">
-                    <div class="h-36 w-full rounded-xl bg-slate-100 border border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">[placeholder: Desktop app + Browse]</div>
-                    <div class="h-36 w-full rounded-xl bg-slate-100 border border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">[placeholder: File name box → paste line → Add → Add in Settings]</div>
-                  </div>
+                  <img class="mt-4 rounded-md" src="graphics-settings-2.png" alt="Settings → System → Display → Graphics screen with Browse button highlighted" />
+                  <img class="mt-4 rounded-md" src="file-picker-2.png" alt="Settings → System → Display → Graphics screen with app list highlighted" />
                 </div>
               </div>
             </div>
           </section>
 
           <!-- Step 3 -->
-          <section class="rounded-2xl border border-slate-200 bg-white p-5">
+          <section class="rounded-2xl border border-slate-200 bg-white p-5" id="step3-chrome">
             <div class="flex items-start gap-4">
               <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white font-bold">3</div>
               <div class="grow">
@@ -155,10 +157,10 @@
                 <h3 class="font-semibold">Open Graphics settings</h3>
                 <p class="mt-1 text-slate-600">Open settings by <a href="ms-settings:display-advancedgraphics" class="text-blue-700 underline hover:no-underline">clicking here</a>, or go to <span class="font-medium">Settings → System → Display → Graphics</span>.</p>
                 <p class="mt-2 text-slate-600">
-                  In the list, look for <span class="font-medium">Microsoft Edge</span> (you may need to scroll). If you see it, go to <span class="font-medium">Step 3</span>.
+                  In the list, look for <span class="font-medium">Microsoft Edge</span> (you may need to scroll). If you see it, go to <a href="#step3-edge" class="text-blue-700 underline hover:no-underline">Step 3</a>.
                 </p>
 
-                <img class="mt-4 rounded-md" src="graphics-settings-look-here.png" alt="Settings → System → Display → Graphics screen with app list highlighted" />
+                <img class="mt-4 rounded-md" src="graphics-settings-1.png" alt="Settings → System → Display → Graphics screen with app list highlighted" />
               </div>
             </div>
           </section>
@@ -167,17 +169,23 @@
           <!-- Step 2 (check first, then A/B with Browse) -->
           <section class="rounded-2xl border border-slate-200 bg-white p-5">
             <div class="flex items-start gap-4">
-              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white font-bold">2</div>
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white font-bold">2</div>
               <div class="grow">
                 <h3 class="font-semibold">Add Edge to the list (only if it’s missing)</h3>
 
                 <div class="mt-2 space-y-4">
-                  <p class="font-medium">If you don’t see Edge there:</p>
-                  <ol class="mt-2 list-decimal pl-5 text-slate-600 space-y-2">
-                    <li>Under <span class="font-medium">Add an app</span>, open the drop‑down and choose <span class="font-medium">Desktop app</span>.</li>
-                    <li>Click <span class="font-medium">Browse</span> (this opens File Explorer).</li>
-                    <li>At the bottom, in the <span class="font-medium">File name</span> box, <span class="font-medium">paste one of the lines</span> below and press <span class="font-medium">Enter</span> (or click <span class="font-medium">Add</span>). If the first line shows you an error, try the next one.</li>
+                  <p class="mt-2 text-slate-600">
+                    If you don’t see Edge there:
+                  </p>
+                  <ol class="list-decimal pl-5 text-slate-600 space-y-2">
+                    <li>Under <span class="font-medium">Add an app</span>, open the drop‑down and make sure <span class="font-medium">Desktop app</span> is selected.</li>
+                    <li>Click <span class="font-medium">Browse</span>.</li>
+                    <li>At the bottom, in the <span class="font-medium">File name</span> box, <span class="font-medium">paste one of the lines</span> below.</li>
+                    <li>Press <span class="font-medium">Enter</span> or click <span class="font-medium">Add</span>.<p>
                   </ol>
+                  <p class="mt-2 text-slate-600">
+                    If the first line shows you an error, try the next one.
+                  </p>
 
                   <!-- Copy‑friendly addresses (avoid the word "path") -->
                   <div class="mt-3 space-y-2">
@@ -191,21 +199,17 @@
                     </div>
                   </div>
 
-                  <!-- Screenshot placeholders -->
-                  <!-- Screenshot: Dropdown set to Desktop app + Browse; second shot shows File Explorer with the File name box used and msedge.exe selected, then the Add button in Settings. -->
-                  <div class="mt-3 grid gap-4 sm:grid-cols-2">
-                    <div class="h-36 w-full rounded-xl bg-slate-100 border border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">[placeholder: Desktop app + Browse]</div>
-                    <div class="h-36 w-full rounded-xl bg-slate-100 border border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">[placeholder: File name box → paste line → Add → Add in Settings]</div>
-                  </div>
+                  <img class="mt-4 rounded-md" src="graphics-settings-2.png" alt="Settings → System → Display → Graphics screen with Browse button highlighted" />
+                  <img class="mt-4 rounded-md" src="file-picker-2.png" alt="Settings → System → Display → Graphics screen with app list highlighted" />
                 </div>
               </div>
             </div>
           </section>
 
           <!-- Step 3 -->
-          <section class="rounded-2xl border border-slate-200 bg-white p-5">
+          <section class="rounded-2xl border border-slate-200 bg-white p-5" id="step3-edge">
             <div class="flex items-start gap-4">
-              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white font-bold">3</div>
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white font-bold">3</div>
               <div class="grow">
                 <h3 class="font-semibold">Choose <em>High performance</em> for Edge</h3>
                 <p class="mt-1 text-slate-600">Find <span class="font-medium">Microsoft Edge</span> in the list (you may need to scroll). Click it → <span class="font-medium">Options</span> → select <span class="font-medium">High performance</span> → <span class="font-medium">Save</span>.</p>
@@ -219,7 +223,7 @@
           <!-- Step 4: Restart -->
           <section class="rounded-2xl border border-slate-200 bg-white p-5">
             <div class="flex items-start gap-4">
-              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white font-bold">4</div>
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white font-bold">4</div>
               <div class="grow">
                 <h3 class="font-semibold">Restart the browser — and if needed, your computer</h3>
                 <p class="mt-1 text-slate-600">Close Edge and open it again. If it doesn't help, try restarting your computer.</p>
