@@ -258,13 +258,13 @@
       if (/Edg\//.test(ua)) {
         detected = 'Microsoft Edge';
         // Flowbite toggles via click; trigger Edge tab
-        setTimeout(() => edgeBtn?.click(), 0);
+        setTimeout(() => edgeBtn.click(), 100);
       } else if (/Chrome\//.test(ua)) {
         detected = 'Google Chrome';
-        setTimeout(() => chromeBtn?.click(), 0);
+        setTimeout(() => chromeBtn.click(), 100);
       } else {
         // Default to Chrome tab if unknown
-        setTimeout(() => chromeBtn?.click(), 0);
+        setTimeout(() => chromeBtn.click(), 100);
       }
       document.getElementById('detectedBrowser').textContent = detected;
 
