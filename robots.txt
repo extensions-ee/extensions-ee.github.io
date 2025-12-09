@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /*/welcome/
+Allow: /
+
+Sitemap: https://extensions.ee/sitemap.xml
