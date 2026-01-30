@@ -15,10 +15,11 @@
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   </script>
   <script>
+    window.gConv = function(name, data) {};
     (function () {
       const params = new URLSearchParams(window.location.search);
       const productId = params.get('product_id');
-      let fbId, name, tag;
+      let fbId, gConvs, name, tag;
 
       switch (productId) {
         case 'ledkjiplmbjfmnblpkpckbahgphoajfb': // Pitch Changer
@@ -26,6 +27,11 @@
           name = 'Pitch Changer';
           tag = 'pitch-changer';
           fbId = '8980699458686582';
+          gConvs = {
+            subscribe: 'AW-16893753266/mu3kCL3lwO8bELLvyPc-',
+            purchase: 'AW-16893753266/ibWuCMDlwO8bELLvyPc-',
+            beginCheckout: 'AW-16893753266/nbI4CKLdwu8bELLvyPc-'
+          };
           break;
         case 'lefillmphhhbghbdiglklchcgalbdeae': // Online Piano
         case 'mphffmbcgnbmpbplikhdeafdcjklkggo': // Online Piano - Sandbox
@@ -69,6 +75,27 @@
       if (fbId) {
         fbq('init', fbId);
         fbq('track', 'PageView');
+      }
+
+      if (gConvs) {
+        window.gConv = function(name, data) {
+          if (name !== 'purchase') {
+            gtag('event', 'conversion', {'send_to': gConvs[name]});
+            return;
+          }
+
+          const isRecurring = !!data.items[0].billing_cycle;
+          const gtagData = {
+            send_to: gConvs[isRecurring ? 'subscribe' : 'purchase'],
+            currency: data.currency_code,
+            value: data.totals.subtotal,
+            transaction_id: data.transaction_id,
+            product_id: productId,
+            billing_period: isRecurring ? data.items[0].billing_cycle.interval : 'one-time'
+          };
+
+          gtag('event', 'conversion', gtagData);
+        };
       }
     })();
   </script>
@@ -127,9 +154,11 @@
             document.getElementById('thank-you').classList.remove('hidden');
             invalidateInstallationData();
             fbq('track', 'Purchase', toFb(data));
+            gConv('purchase', data);
             break;
           case 'checkout.loaded':
             fbq('track', 'AddToCart', toFb(data));
+            gConv('beginCheckout', data);
             break;
           case 'checkout.payment.selected':
             fbq('track', 'AddPaymentInfo', toFb(data));
