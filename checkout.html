@@ -157,14 +157,11 @@
             gConv('purchase', data);
             break;
           case 'checkout.loaded':
-            fbq('track', 'AddToCart', toFb(data));
+            fbq('track', 'InitiateCheckout', toFb(data));
             gConv('beginCheckout', data);
             break;
           case 'checkout.payment.selected':
             fbq('track', 'AddPaymentInfo', toFb(data));
-            break;
-          case 'checkout.payment.initiated':
-            fbq('track', 'InitiateCheckout', toFb(data));
             break;
           default:
             break;
